@@ -1,5 +1,10 @@
-# TestNgLib
+# test-registry-npmjs
+To test library public angular library publishing to https://registry.npmjs.com/
 
+# version
+0.0.2
+
+# test-registry-npmjs
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
 
 ## Code scaffolding
