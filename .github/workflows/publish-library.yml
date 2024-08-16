@@ -1,0 +1,51 @@
+name: "publish library to npmjs"
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-demo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20.16.0
+          registry-url: https://registry.npmjs.org
+          scope: "@narayanan1994"
+      - name: Install packages
+        run: npm install
+      - name: Build demo project
+        run: npm run-script build-demo
+  publish-library:
+    needs: build-demo
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20.16.0
+          registry-url: https://registry.npmjs.org
+          scope: "@narayanan1994"
+      - name: Install packages
+        run: npm install
+      - name: Build library project
+        run: npm run-script build-library
+      - name: Setup .npmrc file
+        working-directory: dist/test-ng-lib
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" >> .npmrc
+      - name: Publish library
+        run: npm publish --access public
+        working-directory: dist/test-ng-lib
