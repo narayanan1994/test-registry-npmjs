@@ -1,0 +1,35 @@
+{
+  "name": "@narayanan1994/test-registry-npmjs",
+  "description": "angular library publish testing",
+  "version": "0.0.1-rc",
+  "peerDependencies": {
+    "@angular/common": "^17.3.0",
+    "@angular/core": "^17.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/narayanan1994/test-registry-npmjs.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "npm",
+    "publish",
+    "package",
+    "registry"
+  ],
+  "author": {
+    "name": "Narayanan",
+    "email": "nanu.s94@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/narayanan1994/test-registry-npmjs/issues"
+  },
+  "homepage": "https://github.com/narayanan1994/test-registry-npmjs#readme"
+}
