@@ -21,6 +21,8 @@ jobs:
           scope: "@narayanan1994"
       - name: Install packages
         run: npm install
+      - name: Build library project
+        run: npm run-script build-library
       - name: Build demo project
         run: npm run-script build-demo
   publish-library:
